@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Contact Us</title>
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  nav {
+    background-color: #f0f0f0;
+    padding: 10px;
+  }
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  nav li {
+    display: inline;
+    margin-right: 20px;
+  }
+  nav a {
+    text-decoration: none;
+    color: #333;
+  }
+  .container {
+    width: 80%;
+    margin: 20px auto;
+  }
+  .contact-form {
+    margin-top: 20px;
+  }
+  .contact-form input[type="text"],
+  .contact-form input[type="email"],
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+  }
+  .contact-form button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  .location {
+    margin-top: 20px;
+  }
+  .back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+  }
+  .content-section {
+    display: none; /* Initially hidden */
+  }
+  .content-section.active {
+    display: block; /* Show when active */
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="#" onclick="showContent('home')">Home</a></li>
+    <li><a href="#" onclick="showContent('about')">About Us</a></li>
+    <li><a href="#" onclick="showContent('menu')">Our Menu</a></li>
+    <li><a href="#" onclick="showContent('hours')">Store Hours</a></li>
+  </ul>
+</nav>
+
+<div class="container">
+  <div class="content-section active" id="home">
+    <h2>Welcome to Our Restaurant!</h2>
+    <p>This is the home page content.</p>
+    <img src="download.jpeg" alt="Tacos And a Drink" style="width: 300px;"> 
+  </div>
+
+  <div class="content-section" id="about">
+    <h2>About Us</h2>
+    <p>We are a family-owned restaurant serving delicious food.</p>
+  </div>
+
+  <div class="content-section" id="menu">
+    <h2>Our Menu</h2>
+    <p>Here's a list of our delicious dishes:</p>
+    <ul>
+      <li>Tacos</li>
+      <li>Burritos</li>
+      <li>Quesadillas</li>
+    </ul>
+  </div>
+
+  <div class="content-section" id="hours">
+    <h2>Store Hours</h2>
+    <p>Monday - Saturday: 10 AM - 9 PM</p>
+    <p>Sunday: 11 AM - 8 PM</p>
+  </div>
+
+  <div class="contact-form">
+    <h2>Our Contact Form</h2>
+    <p>Send Us Message</p>
+    <form>
+      <input type="text" placeholder="Name" name="name" required>
+      <input type="email" placeholder="Email" name="email" required>
+      <textarea placeholder="Your Message" name="message" rows="4" required></textarea>
+      <button type="submit">Send</button>
+      <button type="reset">Reset</button>
+    </form>
+  </div>
+
+  <div class="location">
+    <h2>Our Location</h2>
+    <p>100 Taco Temptation Lane, Suite 7</p>
+    <p>Taco Town, CA 90210</p>
+    <p>Phone: (555) 123-4567</p>
+  </div>
+</div>
+
+<button class="back-to-top" onclick="scrollToTop()">Back to Top</button>
+
+<script>
+  function showContent(sectionId) {
+    var contentSections = document.getElementsByClassName('content-section');
+    for (var i = 0; i < contentSections.length; i++) {
+      contentSections[i].classList.remove('active');
+    }
+    document.getElementById(sectionId).classList.add('active');
+  }
+
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.querySelector(".back-to-top").style.display = "block";
+    } else {
+      document.querySelector(".back-to-top").style.display = "none";
+    }
+  }
+
+  function scrollToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
+</script>
+
+</body>
+</html>
